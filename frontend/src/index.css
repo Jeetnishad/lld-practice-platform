@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+
+  /* Deep graphite engineering palette */
+  --color-bg-base: #0C0F13;
+  --color-surface: #111519;
+  --color-surface-2: #171B21;
+  --color-surface-hover: #1C2028;
+  --color-border: #1E252E;
+  --color-border-strong: #2A3340;
+
+  /* Teal accent — used sparingly */
+  --color-accent: #0EA5A0;
+  --color-accent-hover: #0D9490;
+  --color-accent-dim: rgba(14,165,160,0.12);
+  --color-accent-text: #2DD4BF;
+
+  /* Text */
+  --color-text: #E8EDF2;
+  --color-text-2: #8B97A4;
+  --color-text-3: #56636F;
+
+  /* Semantic */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-info: #38BDF8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { color-scheme: dark; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0C0F13;
+  color: #E8EDF2;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #0C0F13; }
+::-webkit-scrollbar-thumb { background: #1E252E; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2A3340; }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulseOpacity {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+.animate-fade-in  { animation: fadeUp 0.2s ease forwards; }
+.spin             { animation: spin 0.75s linear infinite; }
+.animate-pulse-soft { animation: pulseOpacity 2s ease-in-out infinite; }
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid #0EA5A0;
+  outline-offset: 2px;
+}
+
+/* ── Utility: no scrollbar ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Surface primitives ── */
+.surface {
+  background: #111519;
+  border: 1px solid #1E252E;
+}
+
+.surface-2 {
+  background: #171B21;
+  border: 1px solid #1E252E;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid #1E252E;
+}
+
+/* ── Section marker: left accent bar ── */
+.section-marker {
+  border-left: 2px solid #0EA5A0;
+  padding-left: 12px;
+}
+
+/* ── Monospace label ── */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #56636F;
+}
